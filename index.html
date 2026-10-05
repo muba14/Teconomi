@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="Canlı döviz kurları ve altın fiyatları">
+<title>Teconomi · Döviz & Altın</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23000%22/%3E%3Cpath d=%22M63 39 26 76%22 stroke=%22%23ff7a00%22 stroke-width=%229%22 stroke-linecap=%22round%22/%3E%3Cpath d=%22M30 20Q72 16 82 70Q66 40 30 20Z%22 fill=%22%23ff7a00%22 stroke=%22%23ff7a00%22 stroke-width=%225%22 stroke-linejoin=%22round%22/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-title" content="Teconomi">
+<meta name="application-name" content="Teconomi">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#ff7a00;
+    --orange-soft:rgba(255,122,0,.14);
+    --black:#000;
+    --ink:#0d0d0d;
+    --card:#141414;
+    --line:#262626;
+    --white:#fff;
+    --mute:#9a9a9a;
+    --tab-h:68px;
+    --head-h:56px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--black);color:var(--white)}
+  body{
+    font-family:"Outfit",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    font-variant-numeric:tabular-nums;
+    overscroll-behavior:none;
+  }
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+  .app{
+    position:relative;height:100vh;height:100dvh;max-width:480px;margin:0 auto;
+    display:flex;flex-direction:column;background:var(--ink);
+    border-inline:1px solid var(--line);overflow:hidden;
+  }
+
+  /* ---------- üst bar ---------- */
+  header{
+    height:var(--head-h);flex:none;display:flex;align-items:center;justify-content:space-between;
+    padding:0 18px;border-bottom:1px solid var(--line);background:var(--black);
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+  .brand svg{width:30px;height:30px;flex:none}
+  .head-right{display:flex;align-items:center;gap:10px}
+  .stamp{font-size:12px;color:var(--mute);text-align:right;line-height:1.25}
+  .stamp b{display:block;color:var(--white);font-weight:600}
+  .refresh{
+    width:38px;height:38px;border-radius:12px;border:1px solid var(--line);
+    display:grid;place-items:center;transition:background .2s,border-color .2s;
+  }
+  .refresh:hover{border-color:var(--orange)}
+  .refresh:active{background:var(--orange-soft)}
+  .refresh svg{width:18px;height:18px}
+  .refresh.spin svg{animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* ---------- görünümler ---------- */
+  .view{flex:1;min-height:0;overflow-y:auto;display:none;scrollbar-width:none}
+  .view::-webkit-scrollbar{display:none}
+  .view.active{display:block}
+  #view-fx{scroll-snap-type:y proximity;scroll-behavior:smooth}
+
+  .page{
+    min-height:100%;scroll-snap-align:start;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:18px 20px 22px;gap:14px;position:relative;
+  }
+  .page + .page{border-top:1px solid var(--line)}
+
+  /* ---------- para görseli ---------- */
+  .coin{
+    --s:clamp(100px,19vh,156px);
+    width:var(--s);height:var(--s);border-radius:50%;flex:none;position:relative;
+    background:
+      radial-gradient(circle at 32% 26%, #ffb469 0%, var(--orange) 42%, #c85400 100%);
+    display:grid;place-items:center;
+    box-shadow:
+      0 0 0 8px var(--ink),
+      0 0 0 9px var(--orange),
+      0 0 0 22px var(--ink),
+      0 0 0 23px rgba(255,122,0,.35),
+      0 30px 60px -10px rgba(255,122,0,.45);
+    margin:26px 0 22px;
+    animation:float 5s ease-in-out infinite;
+  }
+  .coin::before{
+    content:"";position:absolute;inset:9%;border-radius:50%;
+    border:2px dashed rgba(0,0,0,.35);
+  }
+  .coin span{
+    font-size:calc(var(--s)*.52);font-weight:800;color:var(--black);line-height:1;
+    text-shadow:0 2px 0 rgba(255,255,255,.25);
+  }
+  @keyframes float{50%{transform:translateY(-8px)}}
+  @media (prefers-reduced-motion:reduce){.coin,.hint svg{animation:none!important}}
+
+  /* gerçek banknot görseli; yüklenemezse turuncu simgeye döner */
+  .art{display:grid;place-items:center;width:100%}
+  .art .coin{display:none}
+  .art.noimg .coin{display:grid}
+  .art.noimg .note{display:none}
+  .note{
+    width:min(88%,340px);margin:22px 0 18px;transform:rotate(-3deg);
+    animation:float 5s ease-in-out infinite;
+  }
+  .note img{
+    display:block;width:100%;height:auto;border-radius:10px;
+    box-shadow:0 0 0 1px rgba(255,255,255,.14),0 0 0 6px var(--ink),0 0 0 7px var(--orange),0 28px 60px -8px rgba(255,122,0,.55);
+  }
+  @media (prefers-reduced-motion:reduce){.note{animation:none}}
+
+  .pair{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600}
+  .pair b{color:var(--orange);font-weight:700}
+  .price{
+    font-size:clamp(46px,14vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1;
+    display:flex;align-items:baseline;gap:6px;
+  }
+  .price small{font-size:.45em;color:var(--orange);font-weight:700}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+  .chip{
+    font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .chip em{font-style:normal;font-weight:500;opacity:.7}
+  .chip.up{background:var(--orange);color:var(--black)}
+  .chip.down{background:transparent;color:var(--white);border:1px solid var(--white)}
+  .chip.flat{background:var(--card);color:var(--mute);border:1px solid var(--line)}
+
+  .chart{
+    width:100%;background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:12px 14px 8px;
+  }
+  .chart-top,.chart-bot{display:flex;justify-content:space-between;font-size:11px;color:var(--mute)}
+  .chart-top{margin-bottom:4px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+  .chart svg{display:block;width:100%;height:auto;max-height:17vh}
+  .chart-empty{font-size:13px;color:var(--mute);text-align:center;padding:22px 0}
+
+  .stats{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;min-width:0}
+  .stat label{display:block;font-size:11px;color:var(--mute);margin-bottom:3px;white-space:nowrap}
+  .stat b{font-size:15px;font-weight:700;white-space:nowrap}
+
+  .hint{
+    display:flex;flex-direction:column;align-items:center;gap:2px;
+    font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;
+  }
+  .hint svg{width:18px;height:18px;stroke:var(--orange);animation:bob 1.6s ease-in-out infinite}
+  @keyframes bob{50%{transform:translateY(4px)}}
+
+  /* ---------- diğer para birimleri / altın kartları ---------- */
+  .page.list{justify-content:flex-start;align-items:stretch;padding-top:26px}
+  .sec-title{font-size:26px;font-weight:800;letter-spacing:-.03em}
+  .sec-title span{color:var(--orange)}
+  .sec-sub{font-size:13px;color:var(--mute);margin-top:-8px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .tile{
+    background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    display:flex;flex-direction:column;transition:border-color .2s,transform .2s;
+  }
+  .tile:hover{border-color:var(--orange);transform:translateY(-2px)}
+  .tile-art{
+    height:92px;position:relative;display:grid;place-items:center;overflow:hidden;
+    background:linear-gradient(135deg,#1c1c1c,#0a0a0a);
+  }
+  .tile-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);opacity:.5}
+  .tile-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,var(--card))}
+  .tile-art.bn{height:82px}
+  .tile-art.bn img{filter:none;opacity:1}
+  .tile-art.bn::after{background:linear-gradient(180deg,transparent 70%,var(--card))}
+  .tile-art.bn .badge{display:none}
+  .badge{
+    position:relative;z-index:1;width:52px;height:52px;border-radius:50%;
+    background:var(--orange);color:var(--black);display:grid;place-items:center;
+    font-weight:800;font-size:22px;box-shadow:0 0 0 5px rgba(0,0,0,.55),0 8px 22px rgba(255,122,0,.4);
+  }
+  .badge.sm{font-size:15px}
+  .tile-body{padding:10px 14px 14px;display:flex;flex-direction:column;gap:3px}
+  .tile-code{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mute);font-weight:600;letter-spacing:.08em}
+  .tile-name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tile-price{font-size:22px;font-weight:800;letter-spacing:-.03em;margin-top:2px}
+  .tile-price small{font-size:.6em;color:var(--orange);font-weight:700;margin-left:2px}
+  .tile-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:6px;margin-top:4px;font-size:11px;color:var(--mute)}
+  .tile-foot span{white-space:nowrap}
+  .tile-foot svg{width:48px;height:22px;flex:none}
+  .delta{font-weight:700;font-size:12px}
+  .delta.up{color:var(--orange)}
+  .delta.down{color:var(--white)}
+  .rows{display:flex;justify-content:space-between;font-size:12px;color:var(--mute)}
+  .rows b{color:var(--white);font-weight:600}
+
+  /* ---------- altın ---------- */
+  .gold-art{width:clamp(120px,22vh,170px);height:auto;margin:10px 0 4px;filter:drop-shadow(0 24px 40px rgba(255,122,0,.4))}
+  .tile-art svg.g{position:relative;z-index:1;width:58px;height:58px}
+
+  .msg{
+    width:100%;border:1px solid var(--line);border-left:3px solid var(--orange);background:var(--card);
+    border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.45;color:#d6d6d6;
+  }
+  .msg button{margin-top:10px;background:var(--orange);color:var(--black);font-weight:700;padding:8px 16px;border-radius:10px}
+  .foot{font-size:11px;color:var(--mute);text-align:center;line-height:1.5;padding:6px 0 2px}
+  .foot a{color:var(--mute)}
+
+  /* ---------- alt sekme çubuğu ---------- */
+  nav{
+    flex:none;height:calc(var(--tab-h) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);
+    display:grid;grid-template-columns:1fr 1fr;background:var(--black);border-top:1px solid var(--line);
+  }
+  nav button{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+    font-size:12px;font-weight:600;color:var(--mute);position:relative;transition:color .2s;
+  }
+  nav svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  nav button.active{color:var(--orange)}
+  nav button.active::before{
+    content:"";position:absolute;top:-1px;left:30%;right:30%;height:3px;border-radius:0 0 4px 4px;background:var(--orange);
+  }
+  :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+
+  .skel{color:transparent!important;background:linear-gradient(90deg,#1b1b1b,#2a2a2a,#1b1b1b);background-size:200% 100%;border-radius:8px;animation:sk 1.2s linear infinite}
+  .skel *{visibility:hidden}
+  @keyframes sk{to{background-position:-200% 0}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brand"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" stroke="#262626" fill="#000"/><path d="M63 39 26 76" stroke="#ff7a00" stroke-width="9" stroke-linecap="round"/><path d="M30 20Q72 16 82 70Q66 40 30 20Z" fill="#ff7a00" stroke="#ff7a00" stroke-width="5" stroke-linejoin="round"/></svg>Teconomi</div>
+    <div class="head-right">
+      <div class="stamp" id="stamp">Yükleniyor…</div>
+      <button class="refresh" id="refresh" aria-label="Yenile" title="Yenile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 4v5h-5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="view active" id="view-fx" aria-label="Döviz"></main>
+  <main class="view" id="view-gold" aria-label="Altın"></main>
+
+  <nav>
+    <button class="active" data-tab="fx">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9.2c-.5-1-1.6-1.7-3-1.7-1.8 0-3 1-3 2.3 0 3 6 1.4 6 4.4 0 1.300-1.300 2.300-3 2.300-1.500 0-2.700-.7-3.200-1.800M12 5.800v1.700M12 16.500v1.700"/></svg>
+      Döviz
+    </button>
+    <button data-tab="gold">
+      <svg viewBox="0 0 24 24"><path d="M8.500 5h7l2 5h-11zM3.500 14h7l2 5h-11zM13.500 14h7l2 5h-11z" transform="translate(-1 0)"/></svg>
+      Altın
+    </button>
+  </nav>
+</div>
+
+<script>
+/* =========================================================
+   Ayarlar
+   ========================================================= */
+const FX_URL   = 'https://open.er-api.com/v6/latest/USD';
+const GOLD_URL = 'https://api.genelpara.com/json/?list=altin&sembol=all';
+const HIST_URL = 'https://api.frankfurter.dev/v1/';      // 30 günlük grafik için (ücretsiz, anahtarsız)
+const FX_REFRESH_MS   = 10 * 60 * 1000;
+const GOLD_REFRESH_MS = 5 * 60 * 1000;   // genelpara günlük istek limiti olduğu için sık çekmiyoruz
+
+// Banknot görselleri Wikimedia'dan gelir. Kendi görsellerini kullanmak istersen
+// depoya bir "img" klasörü açıp buradaki adresleri 'img/usd.png' gibi değiştirmen yeterli.
+const COMMONS = f => 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(f) + '?width=500';
+const ENWIKI  = f => 'https://en.wikipedia.org/wiki/Special:FilePath/' + encodeURIComponent(f);
+const NOTES = {
+  USD: COMMONS('Obverse of the series 2009 $100 Federal Reserve Note.jpg'),
+  EUR: COMMONS('The Europa series 50 € obverse side.png'),
+  GBP: ENWIKI('Bank of England £20 Series G II obverse.jpg'),
+  CHF: COMMONS('CHF100 7 front horizontal.jpg'),
+  JPY: COMMONS('Series F 10K Yen Bank of Japan note - obverse.jpg'),
+  CAD: ENWIKI('Canadian $100 note specimen - face.png'),
+  AUD: ENWIKI('Australian 100 dollar note Obverse Fourth Series.jpeg'),
+  CNY: COMMONS('Banknotes YuanRPC.png'),
+  SEK: ENWIKI('Collage SEK.png'),
+  SAR: ENWIKI('Saudi Riyal 6th Domination.png'),
+  RUB: COMMONS('5000 rubles obverse 2023.jpg'),
+  // AED: uygun bir görsel bulunamadı; bayrak + simge gösterilir
+};
+
+const HEROES = [
+  { code:'USD', name:'Amerikan Doları', sym:'$' },
+  { code:'EUR', name:'Euro',            sym:'€' },
+];
+const OTHERS = [
+  { code:'GBP', name:'İngiliz Sterlini',  sym:'£',  flag:'gb' },
+  { code:'CHF', name:'İsviçre Frangı',    sym:'₣',  flag:'ch' },
+  { code:'JPY', name:'Japon Yeni',        sym:'¥',  flag:'jp' },
+  { code:'CAD', name:'Kanada Doları',     sym:'C$', flag:'ca' },
+  { code:'AUD', name:'Avustralya Doları', sym:'A$', flag:'au' },
+  { code:'CNY', name:'Çin Yuanı',         sym:'元', flag:'cn' },
+  { code:'SEK', name:'İsveç Kronu',       sym:'kr', flag:'se' },
+  { code:'SAR', name:'Suudi Riyali',      sym:'﷼',  flag:'sa' },
+  { code:'AED', name:'BAE Dirhemi',       sym:'د.إ',flag:'ae' },
+  { code:'RUB', name:'Rus Rublesi',       sym:'₽',  flag:'ru' },
+];
+// frankfurter'ın desteklediği kodlar (grafik/değişim bunlar için gelir)
+const HIST_CODES = ['USD','EUR','GBP','CHF','JPY','CAD','AUD','CNY','SEK'];
+
+const GOLD_META = {
+  GA:    { name:'Gram Altın',        art:'bar' },
+  C:     { name:'Çeyrek Altın',      art:.25 },
+  Y:     { name:'Yarım Altın',       art:.5 },
+  T:     { name:'Tam Altın',         art:1 },
+  CMR:   { name:'Cumhuriyet Altını', art:1 },
+  ATA:   { name:'Ata Altın',         art:1 },
+  RA:    { name:'Reşat Altın',       art:1 },
+  HA:    { name:'Hamit Altın',       art:1 },
+  IKB:   { name:'İkibuçuk Altın',    art:1 },
+  GR:    { name:'Gremse Altın',      art:1 },
+  BSL:   { name:'Beşli Altın',       art:1 },
+  XHGLD: { name:'Has Altın',         art:'bar' },
+  '22':  { name:'22 Ayar Bilezik',   art:'ring' },
+  '18':  { name:'18 Ayar Altın',     art:'ring' },
+  '14':  { name:'14 Ayar Altın',     art:'ring' },
+  XAUUSD:{ name:'Ons Altın',         art:'bar', unit:'$' },
+  GAG:   { name:'Gram Gümüş',        art:'bar' },
+  XAUXAG:{ name:'Altın / Gümüş Oranı', art:'ring', unit:'' },
+};
+// Object.keys sayısal anahtarları ('22' gibi) başa aldığı için sıra elle veriliyor
+const GOLD_ORDER = ['GA','C','Y','T','CMR','ATA','RA','HA','IKB','GR','BSL','XHGLD','22','18','14','XAUUSD','GAG','XAUXAG'];
+
+/* =========================================================
+   Yardımcılar
+   ========================================================= */
+const $ = (s, r=document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = (n, d=2) => Number.isFinite(n) ? n.toLocaleString('tr-TR', {minimumFractionDigits:d, maximumFractionDigits:d}) : '—';
+const smart = n => fmt(n, n < 1 ? 4 : 2);
+const store = {
+  get(k){ try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } },
+  set(k,v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+
+async function getJSON(url, ms=12000){
+  const ctl = new AbortController();
+  const t = setTimeout(() => ctl.abort(), ms);
+  try{
+    const r = await fetch(url, { signal: ctl.signal, cache:'no-store' });
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    return await r.json();
+  } finally { clearTimeout(t); }
+}
+
+// "2.345,67" · "2345.67" · 2345.67 → sayı
+function num(v){
+  if(typeof v === 'number') return v;
+  if(v == null) return NaN;
+  let s = String(v).replace(/[^0-9.,-]/g, '');
+  if(!s) return NaN;
+  const c = s.lastIndexOf(','), p = s.lastIndexOf('.');
+  if(c > -1 && p > -1) s = c > p ? s.replace(/\./g,'').replace(',','.') : s.replace(/,/g,'');
+  else if(c > -1)      s = s.replace(',','.');
+  else if(/^-?\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g,'');
+  return parseFloat(s);
+}
+
+function chip(pct, label){
+  if(!Number.isFinite(pct)) return '';
+  const cls = pct > 0.005 ? 'up' : pct < -0.005 ? 'down' : 'flat';
+  const arrow = cls === 'up' ? '▲' : cls === 'down' ? '▼' : '•';
+  return `<span class="chip ${cls}">${arrow} %${fmt(Math.abs(pct))} <em>${label}</em></span>`;
+}
+
+function lineChart(vals, w=320, h=96, opts={}){
+  const min = Math.min(...vals), max = Math.max(...vals), pad = opts.pad ?? 8;
+  const span = (max - min) || 1;
+  const pts = vals.map((v,i) => [
+    pad + i * (w - 2*pad) / (vals.length - 1),
+    pad + (1 - (v - min) / span) * (h - 2*pad)
+  ]);
+  const d = pts.map((p,i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+  const last = pts[pts.length-1];
+  const id = 'g' + Math.random().toString(36).slice(2,8);
+  const area = opts.area === false ? '' :
+    `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a00" stop-opacity=".45"/><stop offset="1" stop-color="#ff7a00" stop-opacity="0"/></linearGradient></defs>
+     <path d="${d} L${last[0].toFixed(1)} ${h} L${pts[0][0].toFixed(1)} ${h} Z" fill="url(#${id})"/>`;
+  const dot = opts.dot === false ? '' :
+    `<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="7" fill="#ff7a00" opacity=".25"/><circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="3.5" fill="#fff" stroke="#ff7a00" stroke-width="2"/>`;
+  return `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Fiyat grafiği">${area}<path d="${d}" fill="none" stroke="#ff7a00" stroke-width="${opts.sw ?? 2.5}" stroke-linecap="round" stroke-linejoin="round"/>${dot}</svg>`;
+}
+
+/* =========================================================
+   DÖVİZ
+   ========================================================= */
+const state = { rates:null, updated:null, hist:null, histDates:null, gold:null, goldAt:null };
+const viewFx = $('#view-fx'), viewGold = $('#view-gold');
+
+const tl = code => state.rates ? state.rates.TRY / state.rates[code] : NaN;   // 1 birim = ? TL
+
+function trend(code){
+  const s = state.hist && state.hist[code];
+  if(!s || s.length < 2) return null;
+  const last = s[s.length-1], prev = s[s.length-2], first = s[0];
+  return { series:s, day:(last/prev-1)*100, month:(last/first-1)*100, hi:Math.max(...s), lo:Math.min(...s) };
+}
+
+function heroHTML(h, i){
+  const v = tl(h.code), t = trend(h.code), d = state.histDates;
+  const dfmt = iso => new Date(iso).toLocaleDateString('tr-TR', {day:'numeric', month:'short'});
+  const chart = t
+    ? `<div class="chart">
+         <div class="chart-top"><span>Son 30 gün</span><span>${h.code}/TRY</span></div>
+         ${lineChart(t.series)}
+         <div class="chart-bot"><span>${dfmt(d[0])}</span><span>${dfmt(d[d.length-1])}</span></div>
+       </div>`
+    : `<div class="chart"><div class="chart-empty">${state.hist === false ? 'Grafik verisi şu an alınamadı.' : 'Grafik yükleniyor…'}</div></div>`;
+  return `
+  <section class="page" id="p-${h.code}">
+    <div class="art ${NOTES[h.code] ? '' : 'noimg'}">
+      ${NOTES[h.code] ? `<div class="note"><img src="${NOTES[h.code]}" alt="${h.name} banknotu" onerror="this.closest('.art').classList.add('noimg')"></div>` : ''}
+      <div class="coin" aria-hidden="true"><span>${h.sym}</span></div>
+    </div>
+    <div class="pair">${h.name} · <b>1 ${h.code}</b></div>
+    <div class="price ${state.rates ? '' : 'skel'}"><span>${fmt(v)}</span><small>₺</small></div>
+    <div class="chips">${t ? chip(t.day,'günlük') + chip(t.month,'30 gün') : ''}</div>
+    ${chart}
+    <div class="stats">
+      <div class="stat"><label>30g en yüksek</label><b>${t ? fmt(t.hi) + ' ₺' : '—'}</b></div>
+      <div class="stat"><label>30g en düşük</label><b>${t ? fmt(t.lo) + ' ₺' : '—'}</b></div>
+      <div class="stat"><label>100 ${h.code}</label><b>${fmt(v*100, 0)} ₺</b></div>
+    </div>
+    <div class="hint">${i === 0 ? 'Euro için kaydır' : 'Diğer para birimleri'}
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+  </section>`;
+}
+
+function tileHTML(o){
+  const v = tl(o.code), t = trend(o.code);
+  const note = NOTES[o.code], flag = `https://flagcdn.com/w320/${o.flag}.png`;
+  const delta = t
+    ? `<span class="delta ${t.day >= 0 ? 'up' : 'down'}">${t.day >= 0 ? '▲' : '▼'} %${fmt(Math.abs(t.day))}</span>`
+    : `<span>1 ₺ = ${fmt(1/v, 4)}</span>`;
+  return `
+  <article class="tile">
+    <div class="tile-art ${note ? 'bn' : ''}">
+      ${note
+        ? `<img src="${note}" alt="${o.name} banknotu" loading="lazy" onerror="this.onerror=function(){this.remove()};this.parentNode.classList.remove('bn');this.alt='';this.src='${flag}'">`
+        : `<img src="${flag}" alt="" loading="lazy" onerror="this.remove()">`}
+      <div class="badge ${o.sym.length > 1 ? 'sm' : ''}">${o.sym}</div>
+    </div>
+    <div class="tile-body">
+      <div class="tile-code"><span>${o.code}</span>${t ? delta : ''}</div>
+      <div class="tile-name">${o.name}</div>
+      <div class="tile-price">${smart(v)}<small>₺</small></div>
+      <div class="tile-foot">
+        <span>${t ? `100 = ${fmt(v*100,0)} ₺` : `1 ₺ = ${fmt(1/v,4)}`}</span>
+        ${t ? lineChart(t.series, 64, 22, {area:false, dot:false, pad:2, sw:1.6}) : ''}
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderFx(){
+  const top = viewFx.scrollTop;
+  viewFx.innerHTML =
+    HEROES.map(heroHTML).join('') +
+    `<section class="page list" id="p-others">
+       <div class="sec-title">Diğer <span>para birimleri</span></div>
+       <div class="sec-sub">1 birimin Türk lirası karşılığı</div>
+       <div class="grid">${OTHERS.map(tileHTML).join('')}</div>
+       <div class="foot">Kurlar: open.er-api.com (günde bir güncellenir) · Grafik: frankfurter.dev · Görseller: Wikimedia<br>Bilgi amaçlıdır, yatırım tavsiyesi değildir.</div>
+     </section>`;
+  viewFx.scrollTop = top;
+}
+
+function setStamp(){
+  const el = $('#stamp');
+  if(!state.updated){ el.textContent = 'Yükleniyor…'; return; }
+  const d = new Date(state.updated * 1000);
+  el.innerHTML = `Kur güncellemesi<b>${d.toLocaleString('tr-TR', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'})}</b>`;
+}
+
+async function loadFx(){
+  try{
+    const j = await getJSON(FX_URL);
+    if(j.result !== 'success' || !j.rates || !j.rates.TRY) throw new Error('Beklenmeyen yanıt');
+    state.rates = j.rates; state.updated = j.time_last_update_unix;
+    store.set('fx', { rates:j.rates, updated:state.updated });
+  }catch(e){
+    const c = store.get('fx');
+    if(c && !state.rates){ state.rates = c.rates; state.updated = c.updated; }
+    if(!state.rates){
+      viewFx.innerHTML = `<section class="page"><div class="msg">Döviz kurları alınamadı. İnternet bağlantını kontrol edip tekrar dene.<br><button onclick="refreshAll()">Tekrar dene</button></div></section>`;
+      return;
+    }
+  }
+  setStamp(); renderFx();
+}
+
+async function loadHist(){
+  try{
+    const start = new Date(Date.now() - 32*864e5).toISOString().slice(0,10);
+    const j = await getJSON(`${HIST_URL}${start}..?base=USD&symbols=TRY,${HIST_CODES.filter(c => c !== 'USD').join(',')}`);
+    const dates = Object.keys(j.rates).sort();
+    if(dates.length < 2) throw new Error('Yetersiz veri');
+    const hist = {};
+    for(const c of HIST_CODES) hist[c] = dates.map(d => j.rates[d].TRY / (c === 'USD' ? 1 : j.rates[d][c])).filter(Number.isFinite);
+    state.hist = hist; state.histDates = dates;
+  }catch(e){ if(!state.hist) state.hist = false; }
+  if(state.rates) renderFx();
+}
+
+/* =========================================================
+   ALTIN
+   ========================================================= */
+function parseGold(j){
+  let root = j && (j.data ?? j.result ?? j.altin ?? j);
+  if(!root || typeof root !== 'object') return [];
+  const entries = Array.isArray(root)
+    ? root.map(o => [o.sembol ?? o.kod ?? o.code ?? o.symbol ?? o.isim ?? '', o])
+    : Object.entries(root);
+  const out = [];
+  for(const [key, o] of entries){
+    if(!o || typeof o !== 'object') continue;
+    const sell = num(o.satis ?? o.sell ?? o.selling ?? o.fiyat ?? o.price);
+    if(!Number.isFinite(sell)) continue;
+    const code = String(key).toUpperCase();
+    const meta = GOLD_META[code] || {};
+    out.push({
+      code,
+      name: meta.name || o.isim || o.adi || o.name || code,
+      art:  meta.art ?? 'ring',
+      unit: meta.unit ?? o.sembol ?? (/USD/.test(code) ? '$' : '₺'),
+      sell,
+      buy: num(o.alis ?? o.buy ?? o.buying),
+      chg: num(o.degisim ?? o.d_oran ?? o.oran ?? o.change),
+    });
+  }
+  const rank = c => { const i = GOLD_ORDER.indexOf(c); return i < 0 ? 999 : i; };
+  return out.sort((a,b) => rank(a.code) - rank(b.code));
+}
+
+function goldArt(art, big){
+  if(art === 'bar') return `
+    <svg class="${big ? 'gold-art' : 'g'}" viewBox="0 0 160 110" aria-hidden="true">
+      <defs><linearGradient id="gb${big?1:0}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb469"/><stop offset=".5" stop-color="#ff7a00"/><stop offset="1" stop-color="#b84c00"/></linearGradient></defs>
+      <path d="M38 22h84l28 66H10z" fill="url(#gb${big?1:0})"/>
+      <path d="M38 22h84l8 18H30z" fill="#fff" opacity=".28"/>
+      <path d="M10 88h140v8H10z" fill="#7a3200"/>
+      <text x="80" y="72" text-anchor="middle" font-family="Outfit,Arial" font-weight="800" font-size="24" fill="#000" opacity=".8">24K</text>
+    </svg>`;
+  if(art === 'ring') return `
+    <svg class="g" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="32" fill="none" stroke="#ff7a00" stroke-width="13"/>
+      <path d="M26 30a32 32 0 0 1 30-12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+    </svg>`;
+  // madeni altın: dolu kısım altının oranını gösterir (çeyrek / yarım / tam)
+  const f = art, a = f * 2 * Math.PI;
+  const x = 50 + 40 * Math.sin(a), y = 50 - 40 * Math.cos(a);
+  const slice = f >= 1
+    ? `<circle cx="50" cy="50" r="40" fill="#ff7a00"/>`
+    : `<path d="M50 50 L50 10 A40 40 0 ${f > .5 ? 1 : 0} 1 ${x.toFixed(2)} ${y.toFixed(2)} Z" fill="#ff7a00"/>`;
+  return `
+    <svg class="g" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#fff" stroke-width="2" opacity=".85"/>
+      <circle cx="50" cy="50" r="40" fill="#1f1f1f"/>
+      ${slice}
+      <circle cx="50" cy="50" r="33" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="2 4" opacity=".5"/>
+    </svg>`;
+}
+
+function renderGold(err){
+  const list = state.gold;
+  if(!list || !list.length){
+    viewGold.innerHTML = `<section class="page">
+      ${goldArt('bar', true)}
+      <div class="sec-title">Altın <span>fiyatları</span></div>
+      <div class="msg">${err
+        ? 'Altın fiyatları şu an alınamadı. Kaynak (genelpara.com) isteği reddetmiş ya da günlük istek limiti dolmuş olabilir.'
+        : 'Altın fiyatları yükleniyor…'}
+        ${err ? '<br><button onclick="loadGold(true)">Tekrar dene</button>' : ''}</div>
+    </section>`;
+    return;
+  }
+  const hero = list.find(g => g.code === 'GA') || list[0];
+  const rest = list.filter(g => g !== hero);
+  const at = state.goldAt ? new Date(state.goldAt).toLocaleTimeString('tr-TR', {hour:'2-digit', minute:'2-digit'}) : '';
+  viewGold.innerHTML = `
+  <section class="page" style="min-height:auto;padding-top:28px">
+    ${goldArt('bar', true)}
+    <div class="pair">${esc(hero.name)} · <b>Satış</b></div>
+    <div class="price"><span>${fmt(hero.sell)}</span><small>${hero.unit}</small></div>
+    <div class="chips">${chip(hero.chg, 'günlük')}</div>
+    <div class="stats">
+      <div class="stat"><label>Alış</label><b>${Number.isFinite(hero.buy) ? fmt(hero.buy) + ' ' + hero.unit : '—'}</b></div>
+      <div class="stat"><label>Satış</label><b>${fmt(hero.sell)} ${hero.unit}</b></div>
+      <div class="stat"><label>Makas</label><b>${Number.isFinite(hero.buy) ? fmt(hero.sell - hero.buy) + ' ' + hero.unit : '—'}</b></div>
+    </div>
+  </section>
+  <section class="page list" style="min-height:auto">
+    <div class="sec-title">Tüm <span>altınlar</span></div>
+    <div class="sec-sub">Satış fiyatı${at ? ' · ' + at + ' itibarıyla' : ''}</div>
+    <div class="grid">${rest.map(g => `
+      <article class="tile">
+        <div class="tile-art">${goldArt(g.art)}</div>
+        <div class="tile-body">
+          <div class="tile-code"><span>${esc(g.code)}</span>${Number.isFinite(g.chg) ? `<span class="delta ${g.chg >= 0 ? 'up' : 'down'}">${g.chg >= 0 ? '▲' : '▼'} %${fmt(Math.abs(g.chg))}</span>` : ''}</div>
+          <div class="tile-name">${esc(g.name)}</div>
+          <div class="tile-price">${fmt(g.sell)}<small>${g.unit}</small></div>
+          <div class="rows"><span>Alış</span><b>${Number.isFinite(g.buy) ? fmt(g.buy) + ' ' + g.unit : '—'}</b></div>
+        </div>
+      </article>`).join('')}
+    </div>
+    <div class="foot">Kaynak: genelpara.com · Bilgi amaçlıdır, yatırım tavsiyesi değildir.</div>
+  </section>`;
+}
+
+async function loadGold(force){
+  const c = store.get('gold');
+  if(c && c.list && c.list.length){
+    state.gold = c.list; state.goldAt = c.at;
+    if(!force && Date.now() - c.at < GOLD_REFRESH_MS){ renderGold(); return; }
+  }
+  renderGold();
+  for(const url of [GOLD_URL]){
+    try{
+      const list = parseGold(await getJSON(url));
+      if(list.length){
+        state.gold = list; state.goldAt = Date.now();
+        store.set('gold', { list, at: state.goldAt });
+        renderGold(); return;
+      }
+    }catch(e){ /* sıradaki yolu dene */ }
+  }
+  renderGold(true);   // önbellekte veri varsa onu göstermeye devam eder
+}
+
+/* =========================================================
+   Sekmeler · yenileme
+   ========================================================= */
+let goldLoaded = false;
+document.querySelectorAll('nav button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('nav button').forEach(x => x.classList.toggle('active', x === b));
+  const tab = b.dataset.tab;
+  viewFx.classList.toggle('active', tab === 'fx');
+  viewGold.classList.toggle('active', tab === 'gold');
+  if(tab === 'gold' && !goldLoaded){ goldLoaded = true; loadGold(); }
+}));
+
+async function refreshAll(){
+  const btn = $('#refresh'); btn.classList.add('spin');
+  const jobs = [loadFx(), loadHist()];
+  if(goldLoaded) jobs.push(loadGold(true));
+  await Promise.allSettled(jobs);
+  btn.classList.remove('spin');
+}
+$('#refresh').addEventListener('click', refreshAll);
+
+renderFx();          // iskelet
+refreshAll();
+setInterval(() => { loadFx(); }, FX_REFRESH_MS);
+setInterval(() => { if(goldLoaded && viewGold.classList.contains('active')) loadGold(); }, GOLD_REFRESH_MS);
+</script>
+</body>
+</html>
